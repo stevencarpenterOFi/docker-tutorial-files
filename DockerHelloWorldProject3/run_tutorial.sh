@@ -12,7 +12,3 @@ then
 fi
 
 ./docker-tutorial-hello/hello3 $VAR_DIR $VAR1 $VAR2 $VAR3
-
-
-
-

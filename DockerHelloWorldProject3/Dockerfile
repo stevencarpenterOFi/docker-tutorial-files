@@ -11,12 +11,29 @@ ENV VAR_DIR=$DIRECTORY
 RUN git clone https://github.com/amy-tabb/docker-tutorial-hello.git
 COPY run_tutorial.sh /run_tutorial.sh
 COPY build_tutorial.sh /build_tutorial.sh
-WORKDIR /docker-tutorial-hello/
 
 #compile and link
-RUN /bin/sh ./../build_tutorial.sh
-WORKDIR /
-CMD ["/bin/sh", "/run_tutorial.sh"]
+RUN chmod +x /build_tutorial.sh
+RUN chmod +x /run_tutorial.sh
+
+WORKDIR /docker-tutorial-hello/
+
+# RUN apt -y update
+# RUN apt -y install vim
+
+# CMD ["/bin/sh", "/docker-tutorial-hello/build_tutorial.sh"]
+# CMD ls
+ENTRYPOINT ["/build_tutorial.sh"]
+# WORKDIR /
+
+# CMD ["/bin/sh", "pwd"]
+# ENTRYPOINT ["/build_tutorial.sh"]
+
+# CMD ["/bin/sh", "pwd", "/run_tutorial.sh"]
+# USER admin
+# CMD ["bash", "/run_tutorial.sh"]
+# CMD bash chmod +x run_tutorial.sh
+# CMD ["bash", "--help"]
 
 
 
