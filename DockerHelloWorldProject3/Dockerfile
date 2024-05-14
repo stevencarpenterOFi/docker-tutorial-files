@@ -18,12 +18,17 @@ RUN chmod +x /run_tutorial.sh
 
 WORKDIR /docker-tutorial-hello/
 
+#compile and link
+RUN /build_tutorial.sh
+
 # RUN apt -y update
 # RUN apt -y install vim
 
 # CMD ["/bin/sh", "/docker-tutorial-hello/build_tutorial.sh"]
 # CMD ls
-ENTRYPOINT ["/build_tutorial.sh"]
+#compile and link
+# CMD ["/bin/sh", "/run_tutorial.sh"]
+ENTRYPOINT ["/run_tutorial.sh"]
 # WORKDIR /
 
 # CMD ["/bin/sh", "pwd"]
